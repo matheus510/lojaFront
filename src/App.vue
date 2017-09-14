@@ -1,23 +1,52 @@
+/* eslint-disable */
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <navbar></navbar>
+    <breadcrumb></breadcrumb>
+    <product-panel></product-panel>
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
+import Breadcrumb from './components/Breadcrumbs.vue'
+import ProductPanel from './components/ProductPanel.vue'
+
+let data = require('@/assets/produtos/teclado/teclado-1.jpg')
+
+let items = [
+  {
+    text: 'Home',
+    href: 'http://google.com',
+  }, {
+    text: 'Posts',
+    to: { name: 'home' },
+  }, {
+    text: 'Another Story',
+    active: true
+  }
+]
+
+let state = {
+  location: {
+    name: 'Cabos'
+  }
+}
+
 export default {
-  name: 'app'
+  data () {
+    return state
+  },
+  components: {
+    Navbar,
+    Breadcrumb,
+    ProductPanel
+  }
 }
 </script>
 
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

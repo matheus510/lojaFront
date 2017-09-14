@@ -1,0 +1,7 @@
+{
+  extends: ["Vue"],
+  plugins: ["vue"],
+  rules: {
+
+  },
+}

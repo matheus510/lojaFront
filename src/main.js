@@ -7,7 +7,15 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
-Vue.config.productionTip = false
+Vue.use(BootstrapVue)
+
+// import of global components for props usage
+import Breadcrumb from './components/Breadcrumbs.vue'
+
+Vue.component('breadcrumb', {
+  template: Breadcrumb,
+  props: ['items']
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -16,12 +24,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-
-import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
-/* ...there may be other imports here */
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import 'bootstrap/dist/css/bootstrap.css'
-
-Vue.use(BootstrapVue)
