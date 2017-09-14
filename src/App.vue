@@ -22,7 +22,7 @@ let items = [
     text: 'Posts',
     to: { name: 'home' },
   }, {
-    text: 'Another Story',
+    text: 'yess Story',
     active: true
   }
 ]
