@@ -2,7 +2,6 @@
   <div>
   <b-container class="pt-3">
     <b-row>
-
       <b-col>
         <b-card title="Tecladao da massa"
                 img-src="../assets/logo.png"
@@ -11,6 +10,7 @@
                 style="max-width: 20rem;"
                 class="mb-2">
             <p class="card-text">
+              <img src="../assets/logo.png" class="card-img-top">
             tecladao da massa
             </p>
             <b-button href="#" variant="primary">R$ 100,00</b-button>
