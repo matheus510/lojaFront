@@ -1,71 +1,121 @@
 <template>
   <div>
-  <b-container class="pt-3">
+    <b-container class="pt-3">
     <b-row>
-      <b-col>
-        <b-card title="Tecladao da massa"
-                img-src="../assets/logo.png"
-                img-alt="teclado"
+      <b-col v-for="product in filteredEven" :key="product.cod">
+      <b-card-group deck
+              class="mb-3">
+        <b-card :title="product.name"
+                :img-src="product.url"
+                :img-alt="product.name"
                 img-top
-                style="max-width: 20rem;"
+                style="max-width: 20rem; height: 30rem;"
                 class="mb-2">
-            <p class="card-text">
-              <img src="../assets/logo.png" class="card-img-top">
-            tecladao da massa
-            </p>
-            <b-button href="#" variant="primary">R$ 100,00</b-button>
+          <p class="card-text">
+            {{ product.descricao }}
+          </p>
+          <b-button href="#" variant="primary">R${{  product.preco  }},00</b-button>
         </b-card>
-      </b-col>
-
-      <b-col>
-        <b-card title="Tecladao da massa"
-                img-src="../assets/produtos/teclado/teclado-1.jpg"
-                img-alt="teclado"
-                img-top
-                style="max-width: 20rem;"
-                class="mb-2">
-            <p class="card-text">
-            tecladao da massa
-            </p>
-            <b-button href="#" variant="primary">R$ 100,00</b-button>
-        </b-card>
-      </b-col>
-    
-    </b-row>
-
-    <b-row>
-      
-      <b-col>
-        <b-card title="Tecladao da massa"
-                img-src="../assets/produtos/teclado/teclado-1.jpg"
-                img-alt="teclado"
-                img-top
-                style="max-width: 20rem;"
-                class="mb-2">
-            <p class="card-text">
-            tecladao da massa
-            </p>
-            <b-button href="#" variant="primary">R$ 100,00</b-button>
-        </b-card>
-      </b-col>
-
-      <b-col>
-        <b-card title="Tecladao da massa"
-                img-src="../assets/produtos/teclado/teclado-1.jpg"
-                img-alt="teclado"
-                img-top
-                style="max-width: 20rem;"
-                class="mb-2">
-            <p class="card-text">
-            tecladao da massa
-            </p>
-            <b-button href="#" variant="primary">R$ 100,00</b-button>
-        </b-card>
+      </b-card-group>
       </b-col>
     </b-row>
-  </b-container>
+    <b-row>
+      <b-col v-for="product in filteredOdd" :key="product.cod">  
+      <b-card-group deck
+              class="mb-3">
+        <b-card :title="product.name"
+                :img-src="product.url"
+                :img-alt="product.name"
+                img-top
+                style="max-width: 20rem; height: 30rem;"
+                class="mb-2">
+          <p class="card-text">
+            {{ product.descricao }}
+          </p>
+          <b-button href="#" variant="primary">R${{  product.preco  }},00</b-button>
+        </b-card>
+      </b-card-group>
+      </b-col> 
+    </b-row>
+    </b-container>
   </div>
 </template>
+
+<script>
+{
+  // GET /someUrl
+  this.$http.get('/someUrl').then(response => {
+
+    // get body data
+    this.someData = response.body;
+
+  }, response => {
+    // error callback
+  });
+}
+
+export default {
+  data: function () {
+    return {
+      productList: [
+        {
+          name:"Teclado show",
+          cod: 1,
+          descricao: "Teclado de alta qualidade.",
+          preco: 100,
+          url: "static/produtos/teclado/teclado-1.jpg"
+        },
+        {
+          name:"Teclado show",
+          cod: 2,
+          descricao: "Teclado de alta qualidade.",
+          preco: 100,
+          url: "static/produtos/teclado/teclado-3.jpg"
+        },
+        {
+          name:"Teclado medio",
+          cod: 3,
+          descricao: "Teclado de boa qualidade.",
+          preco: 89,
+          url: "static/produtos/teclado/teclado-2.jpg"
+        },
+        {
+          name:"Teclado medio",
+          cod: 4,
+          descricao: "Teclado de boa qualidade.",
+          preco: 89,
+          url: "static/produtos/teclado/teclado-4.jpg"
+        }
+      ]
+    }
+  },
+  computed: {
+    filteredEven: function() {
+        return this.productList.reduce(function (acc, product) {
+          let r = product.cod % 2
+          console.log(r)
+          if (r == 0) {
+            console.log('par')
+            acc.push(product)
+          }
+          console.log(acc)
+          return acc
+        }, [])
+    },
+    filteredOdd: function() {
+        return this.productList.reduce(function (acc, product) {
+          let r = product.cod % 2
+          if (r != 0) {
+            console.log('impar')
+            acc.push(product)
+          }
+        
+        return acc
+        }, [])
+    }
+  }
+}
+</script>
 
 
 <style>
