@@ -14,7 +14,8 @@ import Breadcrumb from './components/Breadcrumbs.vue'
 
 Vue.component('breadcrumb', {
   template: Breadcrumb,
-  props: ['items']
+  props: ['route'],
+  router
 })
 
 /* eslint-disable no-new */

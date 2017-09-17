@@ -1,27 +1,18 @@
 <template>
-  <b-breadcrumb :items="this.items"/>
+  <b-breadcrumb :items="routes"></b-breadcrumb>
 </template>
 <script>
-let items = [
-  {
-    text: 'Home',
-    href: 'http://google.com',
-  }, {
-    text: 'Cabos',
-    to: { name: 'home' },
-  }
-]
-let data = {
-    items
-}
 export default {
-  data () {
-    return data
+  props: { 
+    route: {
+      type: Array,
+      required: true 
+    }
   },
-  methods: {
-      loadItems: function () {
-          items = this.items
-      }
+  data () {
+    return {
+      routes: this.route
+    }
   }
 }
 </script>

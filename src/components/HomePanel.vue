@@ -93,9 +93,7 @@ export default {
     filteredEven: function() {
         return this.productList.reduce(function (acc, product) {
           let r = product.cod % 2
-          
           if (r == 0) {
-            
             acc.push(product)
           }
           return acc
@@ -104,7 +102,7 @@ export default {
     filteredOdd: function() {
         return this.productList.reduce(function (acc, product) {
           let r = product.cod % 2
-          if (r != 0) {
+          if (r != 0) { 
             acc.push(product)
           }
         
