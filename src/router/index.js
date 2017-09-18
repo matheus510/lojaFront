@@ -7,6 +7,7 @@ import ProductView from '@/components/ProductView'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -14,13 +15,13 @@ export default new Router({
       component: HomePanel
     },
     {
-      path: '/produto/:nome',
-      name: 'product name',
+      path: '/produto/:name/',
+      name: 'product',
       component: ProductView
     },
     {
-      path: '/categoria/:categoria',
-      name: 'product category',
+      path: '/categoria/:categoria/',
+      name: 'product-category',
       component: ProductPanel
     }
   ]

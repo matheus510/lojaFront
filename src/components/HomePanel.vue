@@ -63,28 +63,28 @@ export default {
           cod: 1,
           descricao: "Teclado de alta qualidade.",
           preco: 100,
-          url: "static/produtos/teclado/teclado-1.jpg"
+          url: "http://localhost:8080/static/produtos/teclado/teclado-1.jpg"
         },
         {
           name:"Teclado show",
           cod: 2,
           descricao: "Teclado de alta qualidade.",
           preco: 100,
-          url: "static/produtos/teclado/teclado-3.jpg"
+          url: "http://localhost:8080/static/produtos/teclado/teclado-3.jpg"
         },
         {
           name:"Teclado medio",
           cod: 3,
           descricao: "Teclado de boa qualidade.",
           preco: 89,
-          url: "static/produtos/teclado/teclado-2.jpg"
+          url: "http://localhost:8080/static/produtos/teclado/teclado-2.jpg"
         },
         {
           name:"Teclado medio",
           cod: 4,
           descricao: "Teclado de boa qualidade.",
           preco: 89,
-          url: "static/produtos/teclado/teclado-4.jpg"
+          url: "http://localhost:8080/static/produtos/teclado/teclado-4.jpg"
         }
       ]
     }

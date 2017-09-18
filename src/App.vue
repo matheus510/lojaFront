@@ -32,14 +32,14 @@ export default {
       if (isCategory === true) {
         console.log('oieee1')
         let start = urlPath.indexOf('categoria/') + 10
-        let end = urlPath.lenght
+        let end = urlPath.lenght - 3
         let categoryName = urlPath.substring(start, end)
         return [{
           text: 'Home',
-          href: 'http://localhost:8080/',
+          to: 'http://localhost:8080/',
         }, {
           text: 'Categorias',
-          to: { name: 'product category' },
+          to: { name: 'product-category' },
         }, {
           text: `${categoryName}`,
           active: true
@@ -47,14 +47,15 @@ export default {
       } else if (isProductView === true) {
         console.log('oieee2')
         let start = urlPath.indexOf('produto/') + 8
-        let end = urlPath.lenght
-        let productName = urlPath.substring(start, end).replace('-', ' ')
+        let end = urlPath.length - 3
+        let productName = urlPath.substring(start, end)
+        console.log(productName)
         return [{
           text: 'Home',
-          href: 'http://localhost:8080/',
+          to: 'http://localhost:8080/',
         }, {
           text: 'Produtos',
-          to: { name: 'product name' },
+          to: { name: 'product', params: { name: productName }},
         }, {
           text: `${productName}`,
           active: true
@@ -62,7 +63,7 @@ export default {
       } else {
           return [{
             text: 'Home',
-            href: 'http://localhost:8080/',
+            to: 'http://localhost:8080/',
           }]
         }
       }
