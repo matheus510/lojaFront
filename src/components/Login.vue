@@ -4,10 +4,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Form</div>
                 <div class="panel-body">
-                    <form action="" method="POST" enctype="application/x-www-form-urlencoded">
-                        <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
-                        <input type=submit>
-                    </form>
+                    <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
+                    <input type=submit onsubmit="validation()">
                 </div>
             </div>
         </div>
@@ -21,15 +19,15 @@
         data: function () {
             return {
             model: {
-                Username: "",
+                username: "",
                 password: ""
             },
             schema: {
                 fields: [{
                     type: "input",
                     inputType: "text",
-                    label: "Username",
-                    model: "Username",
+                    label: "username",
+                    model: "username",
                     readonly: false,
                     featured: true,
                     disabled: false,
@@ -71,8 +69,23 @@
                     return '<span class="' + cls + '">' + match + '</span>';
                 });
             }
-        }   
-    }   
+        },
+        validation: function () {
+             // POST /someUrl
+            this.$http.post('/api/login', {username: this.model.username, password: this.model.password}).then(response => {
+                console.log('oi')
+                response.status;
+                response.statusText;
+
+                response.headers.get('Expires');
+
+                this.someData = response.body;
+
+            }, response => {
+                // error callback
+            });
+        }
+    }
 }         
 
 </script>
