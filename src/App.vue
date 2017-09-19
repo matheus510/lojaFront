@@ -1,16 +1,21 @@
 /* eslint-disable */
 <template>
   <div id="app">
-    <navbar></navbar>
-    <breadcrumb v-bind:route="this.route"></breadcrumb>
-    <router-view></router-view>
+    <div v-if="isLogin">
+      <router-view></router-view>
+    </div>
+    <div v-else>
+      <navbar></navbar>
+      <breadcrumb v-bind:route="this.route"></breadcrumb>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
 import Breadcrumb from './components/Breadcrumbs.vue'
-import ProductPanel from './components/ProductPanel.vue'
+import Login from './components/Login.vue'
 
 let state = {}
 
@@ -20,11 +25,10 @@ export default {
   },
   components: {
     Navbar,
-    Breadcrumb,
-    ProductPanel
+    Breadcrumb
   },
   computed: {
-    route: function() {
+    route: function () {
       let urlPath = document.URL
       let isCategory = urlPath.includes('categoria/')
       let isProductView = urlPath.includes('produto/')
@@ -66,9 +70,12 @@ export default {
             to: 'http://localhost:8080/',
           }]
         }
-      }
-    } 
+      },
+    isLogin: function () {
+      return (this.$route.path.includes('login')) ? true : false
+    }
   }
+}
 
 </script>
 

@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
+import VueFormGenerator from 'vue-form-generator'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
+Vue.use(VueFormGenerator)
 Vue.use(BootstrapVue)
 
 // import of global components for props usage
