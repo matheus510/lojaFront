@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-container class="pt-3">
+  <div v-on:load="loadProducts">
+    <b-container>
       <b-row>
         <b-col v-for="product in filteredEven" :key="product.cod">
         <b-card-group deck
@@ -53,41 +53,23 @@
     // error callback
   });
 } */
-
 export default {
   data: function () {
     return {
-      productList: [
-        {
-          name:"Teclado show",
-          cod: 1,
-          descricao: "Teclado de alta qualidade.",
-          preco: 100,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-1.jpg"
-        },
-        {
-          name:"Teclado show",
-          cod: 2,
-          descricao: "Teclado de alta qualidade.",
-          preco: 100,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-3.jpg"
-        },
-        {
-          name:"Teclado medio",
-          cod: 3,
-          descricao: "Teclado de boa qualidade.",
-          preco: 89,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-2.jpg"
-        },
-        {
-          name:"Teclado medio",
-          cod: 4,
-          descricao: "Teclado de boa qualidade.",
-          preco: 89,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-4.jpg"
-        }
-      ]
+      productList: {}
     }
+  },
+  methods: {
+    loadProducts: function () {
+      console.log(" monted");
+      debugger
+      this.$http.get(`http://localhost:8000/api/produtos/${this.$route.params.categoria}`).then(response => {
+        this.productList = response.body
+        /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
+      }, response => {
+        console.log('erro de connexao')
+      })
+    } 
   },
   computed: {
     filteredEven: function() {

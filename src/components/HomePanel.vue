@@ -54,42 +54,16 @@
   });
 } */
 
+import VueResouce from 'vue-resource'
+
+
 export default {
   data: function () {
     return {
-      productList: [
-        {
-          name:"Teclado show",
-          cod: 1,
-          descricao: "Teclado de alta qualidade.",
-          preco: 100,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-1.jpg"
-        },
-        {
-          name:"Teclado show",
-          cod: 2,
-          descricao: "Teclado de alta qualidade.",
-          preco: 100,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-3.jpg"
-        },
-        {
-          name:"Teclado medio",
-          cod: 3,
-          descricao: "Teclado de boa qualidade.",
-          preco: 89,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-2.jpg"
-        },
-        {
-          name:"Teclado medio",
-          cod: 4,
-          descricao: "Teclado de boa qualidade.",
-          preco: 89,
-          url: "http://localhost:8080/static/produtos/teclado/teclado-4.jpg"
-        }
-      ]
+      productList: []
     }
   },
-  computed: {
+  computed: {   
     filteredEven: function() {
         return this.productList.reduce(function (acc, product) {
           let r = product.cod % 2
@@ -108,6 +82,16 @@ export default {
         
         return acc
         }, [])
+    },
+    loadProducts: function() {
+      debugger
+      this.$http.get('http://localhost:8000/api/produtos').then(response => {
+      return response.body
+
+      /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
+      }, response => {
+        console.log('erro de connexao')
+      })
     }
   }
 }

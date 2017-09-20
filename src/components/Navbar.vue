@@ -12,10 +12,10 @@
   <b-collapse is-nav id="nav_collapse">
 
     <b-nav is-nav-bar>
-      <b-nav-item to="/produto/">Filtros de Linha</b-nav-item>
-      <b-nav-item to="/produto/cabo-1">Cabos</b-nav-item>
-      <b-nav-item to="/produto/">Adaptadores</b-nav-item>
-      <b-nav-item to="/produto/">Teclados</b-nav-item>
+      <b-nav-item to="/categoria/filtro">Filtros de Linha</b-nav-item>
+      <b-nav-item to="/categoria/cabo">Cabos</b-nav-item>
+      <b-nav-item to="/categoria/joelho">Adaptadores</b-nav-item>
+      <b-nav-item to="/categoria/teclado">Teclados</b-nav-item>
     </b-nav>
 
     <!-- Right aligned nav items -->

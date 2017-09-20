@@ -5,11 +5,13 @@ import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import VueFormGenerator from 'vue-form-generator'
+import VueResource from 'vue-resource'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 Vue.use(VueFormGenerator)
 Vue.use(BootstrapVue)
+Vue.use(VueResource)
 
 // import of global components for props usage
 import Breadcrumb from './components/Breadcrumbs.vue'

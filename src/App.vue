@@ -17,11 +17,11 @@ import Navbar from './components/Navbar.vue'
 import Breadcrumb from './components/Breadcrumbs.vue'
 import Login from './components/Login.vue'
 
-let state = {}
+
 
 export default {
   data () {
-    return state
+    return{}
   },
   components: {
     Navbar,
