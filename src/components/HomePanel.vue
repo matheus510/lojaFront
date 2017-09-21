@@ -63,6 +63,15 @@ export default {
       productList: []
     }
   },
+  created: function() {
+    this.$http.get('http://localhost:8000/api/produtos').then(response => {
+    this.productList = response.body
+
+    /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
+    }, response => {
+      console.log('erro de connexao')
+    })
+  },
   computed: {   
     filteredEven: function() {
         return this.productList.reduce(function (acc, product) {
@@ -82,16 +91,6 @@ export default {
         
         return acc
         }, [])
-    },
-    loadProducts: function() {
-      debugger
-      this.$http.get('http://localhost:8000/api/produtos').then(response => {
-      return response.body
-
-      /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
-      }, response => {
-        console.log('erro de connexao')
-      })
     }
   }
 }

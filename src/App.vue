@@ -32,12 +32,9 @@ export default {
       let urlPath = document.URL
       let isCategory = urlPath.includes('categoria/')
       let isProductView = urlPath.includes('produto/')
-      console.log('oi')
+      let categoryName = this.$route.params.categoria
+      let productName = this.$route.params.produto
       if (isCategory === true) {
-        console.log('oieee1')
-        let start = urlPath.indexOf('categoria/') + 10
-        let end = urlPath.lenght - 3
-        let categoryName = urlPath.substring(start, end)
         return [{
           text: 'Home',
           to: 'http://localhost:8080/',
@@ -49,11 +46,6 @@ export default {
           active: true
         }]
       } else if (isProductView === true) {
-        console.log('oieee2')
-        let start = urlPath.indexOf('produto/') + 8
-        let end = urlPath.length - 3
-        let productName = urlPath.substring(start, end)
-        console.log(productName)
         return [{
           text: 'Home',
           to: 'http://localhost:8080/',

@@ -4,7 +4,7 @@
   <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
   <b-navbar variant="faded" type="light">
-    <b-navbar-brand href="#">
+    <b-navbar-brand to="/">
       <img src="../assets/logo.png" alt="Top Informática" id="logo">
     </b-navbar-brand>
   </b-navbar>
@@ -12,28 +12,24 @@
   <b-collapse is-nav id="nav_collapse">
 
     <b-nav is-nav-bar>
-      <b-nav-item to="/categoria/filtro">Filtros de Linha</b-nav-item>
-      <b-nav-item to="/categoria/cabo">Cabos</b-nav-item>
-      <b-nav-item to="/categoria/joelho">Adaptadores</b-nav-item>
-      <b-nav-item to="/categoria/teclado">Teclados</b-nav-item>
+      <b-nav-item to="/categoria/filtro/">Filtros de Linha</b-nav-item>
+      <b-nav-item to="/categoria/cabo/">Cabos</b-nav-item>
+      <b-nav-item to="/categoria/joelho/">Adaptadores</b-nav-item>
+      <b-nav-item to="/categoria/teclado/">Teclados</b-nav-item>
     </b-nav>
 
     <!-- Right aligned nav items -->
     <b-nav is-nav-bar class="ml-auto">
 
-      <b-nav-form>
+<!--       <b-nav-form>
         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
         <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
       </b-nav-form>
-
-      <b-nav-item-dropdown right>
+ -->
+      <b-nav right>
         <!-- Using button-content slot -->
-        <template slot="button-content">
-          <em>User</em>
-        </template>
-        <b-dropdown-item href="#">Profile</b-dropdown-item>
-        <b-dropdown-item href="#">Signout</b-dropdown-item>
-      </b-nav-item-dropdown>
+        <b-nav-item to="/login/">Login</b-nav-item>
+      </b-nav>
     </b-nav>
 
   </b-collapse>

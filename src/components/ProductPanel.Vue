@@ -1,5 +1,5 @@
 <template>
-  <div v-on:load="loadProducts">
+  <div>
     <b-container>
       <b-row>
         <b-col v-for="product in filteredEven" :key="product.cod">
@@ -56,20 +56,16 @@
 export default {
   data: function () {
     return {
-      productList: {}
+      productList: []
     }
   },
-  methods: {
-    loadProducts: function () {
-      console.log(" monted");
-      debugger
-      this.$http.get(`http://localhost:8000/api/produtos/${this.$route.params.categoria}`).then(response => {
-        this.productList = response.body
-        /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
-      }, response => {
-        console.log('erro de connexao')
-      })
-    } 
+  beforeMount: function () {
+    this.$http.get(`http://localhost:8000/api/produtos/${this.$route.params.categoria}`).then(response => {
+      return this.productList = response.body
+      /* https://limitless-retreat-29336.herokuapp.com/api/produtos' */
+    }, response => {
+      console.log('erro de connexao')
+    })
   },
   computed: {
     filteredEven: function() {
