@@ -14,14 +14,10 @@
 
 <script>
     import VueFormGenerator from 'vue-form-generator'
-
+    import auth from '../auth'
 	export default {
         data: function () {
             return {
-            model: {
-                username: "",
-                password: ""
-            },
             schema: {
                 fields: [{
                     type: "input",
@@ -45,6 +41,10 @@
             formOptions: {
                 validateAfterLoad: true,
                 validateAfterChanged: true
+            },
+            model: {
+                username: "",
+                password: ""
             }
         }
     },
@@ -70,20 +70,14 @@
                 });
             }
         },
-        validation: function () {
-             // POST /someUrl
-            this.$http.post('/api/login', {username: this.model.username, password: this.model.password}).then(response => {
-                console.log('oi')
-                response.status;
-                response.statusText;
-
-                response.headers.get('Expires');
-
-                this.someData = response.body;
-
-            }, response => {
-                // error callback
-            });
+        submit () {
+            var credentials = {
+            username: this.credentials.username,
+            password: this.credentials.password
+            }
+            // We need to pass the component's this context
+            // to properly make use of http in the auth service
+            auth.login(this, credentials, 'secretquote')
         }
     }
 }         

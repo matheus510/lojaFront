@@ -1,14 +1,14 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Login from '@/components/Login'
 import ProductForm from '@/components/ProductForm'
 import ProductPanel from '@/components/ProductPanel'
 import HomePanel from '@/components/HomePanel'
 import ProductView from '@/components/ProductView'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   mode: 'history',
   routes: [
     {
