@@ -3,7 +3,7 @@ import router from '../router/index.js'
 
 // URL and endpoint constants
 const API_URL = 'http://localhost:8080/'
-const LOGIN_URL = API_URL + 'sessions/create/'
+const LOGIN_URL = API_URL + 'api/login/'
 const SIGNUP_URL = API_URL + 'users/'
 
 export default {
